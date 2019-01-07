@@ -51,5 +51,25 @@ router.route('/')
     });
   });
 
+// set the base route
+router.route('/:dinosaur_id')
+
+  // define route to retrieve a dinosaur (accessed via GET http://localhost:8000/api/:dinosaur_id)
+  .get(function(req, res) {
+    // find dinosaur record by id and execute callback function
+    Dinosaur.findById(req.params.dinosaur_id, function(err, dinosaur) {
+      if (err) {
+        // return an error in the response
+        res.send(err);
+      } else {
+        // return a message and the dinosaur record in the response
+        res.json({
+          message: 'Dinosaur found!',
+          dinosaur
+        });
+      };
+    });
+  });
+
 // export router for use in the application
 module.exports = router;
