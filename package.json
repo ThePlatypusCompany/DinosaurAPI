@@ -4,6 +4,7 @@
   "description": "Simple REST API made with Express & MongoDB",
   "main": "index.js",
   "scripts": {
+    "start": "node_modules/.bin/nodemon index.js --exec",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
