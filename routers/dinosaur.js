@@ -28,6 +28,27 @@ router.route('/')
         });
       };
     });
+  })
+
+  // define route to create a dinosaur (accessed via POST http://localhost:8000/api/dinosaurs)
+  .post(function(req, res) {
+    // build a new instance of the dinosaur model
+    var dinosaur = new Dinosaur();
+    // set the dinosaur name based on the request body
+    dinosaur.name = req.body.name;
+    // check for errors and save the dinosaur
+    dinosaur.save(function(err) {
+      if (err) {
+        // return an error in the response
+        res.send(err);
+      } else {
+        // return a message and the dinosaur record in the response
+        res.json({
+          message: 'Dinosaur created!',
+          dinosaur
+        });
+      };
+    });
   });
 
 // export router for use in the application
