@@ -25,6 +25,32 @@ mongoose.connect(
   { useNewUrlParser: true }
 );
 
+// DEFINE ROUTERS
+// =================================================================
+
+// get an instance of the express router
+var router = express.Router();
+
+// configure middleware to use for all requests
+router.use(function(req, res, next) {
+  // log a message to the console
+  console.log('Something is happening!');
+  // ensure we go to the next route and don't stop here
+  next();
+});
+
+// define a test route (accessed via GET http://localhost:8000/api)
+router.get('/', function(req, res) {
+  // return a message in the response
+  res.json({ message: 'Hooray! Welcome to the API!' });
+});
+
+// REGISTER ROUTERS
+// =================================================================
+
+// register main router with app using the api namespace
+app.use('/api', router);
+
 // START THE SERVER
 // =================================================================
 
