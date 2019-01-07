@@ -96,6 +96,31 @@ router.route('/:dinosaur_id')
         });
       };
     });
+  })
+
+  // define route to delete a dinosaur (accessed via DELETE http://localhost:8000/api/:dinosaur_id)
+  .delete(function(req, res) {
+    // find dinosaur record by id and execute callback function
+    Dinosaur.findById(req.params.dinosaur_id, function(err, dinosaur) {
+      if(err) {
+        // return an error in the response
+        res.send(err);
+      } else {
+        // remove the dinosaur
+        dinosaur.remove(function(err) {
+          if (err) {
+            // return an error in the response
+            res.send(err);
+          } else {
+            // return a message and the dinosaur record in the response
+            res.json({
+              message: 'Dinosaur removed!',
+              dinosaur
+            });
+          }
+        });
+      };
+    });
   });
 
 // export router for use in the application
