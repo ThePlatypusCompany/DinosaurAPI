@@ -45,8 +45,14 @@ router.get('/', function(req, res) {
   res.json({ message: 'Hooray! Welcome to the API!' });
 });
 
+// import the routers we need
+var dinosaurRouter = require('./routers/dinosaur.js');
+
 // REGISTER ROUTERS
 // =================================================================
+
+// register imported routers with main router
+router.use('/dinosaurs', dinosaurRouter);
 
 // register main router with app using the api namespace
 app.use('/api', router);
