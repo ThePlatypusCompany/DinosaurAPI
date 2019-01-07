@@ -16,6 +16,15 @@ app.use(bodyParser.json());
 // define port to be used
 var port = 8000;
 
+// CONNECT TO THE DATABASE
+// =================================================================
+
+// use mongoose to connect to mongodb
+mongoose.connect(
+  'mongodb://<dbuser>:<dbpassword>@#####.mlab.com:#####/dinosaurs',
+  { useNewUrlParser: true }
+);
+
 // START THE SERVER
 // =================================================================
 
