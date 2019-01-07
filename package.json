@@ -1,0 +1,19 @@
+{
+  "name": "dinosaur_api",
+  "version": "1.0.0",
+  "description": "Simple REST API made with Express & MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PlatypusIndustries/DinosaurAPI.git"
+  },
+  "author": "Platypus <support@platypusindustries.com> (https://platypusindustries.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PlatypusIndustries/DinosaurAPI/issues"
+  },
+  "homepage": "https://github.com/PlatypusIndustries/DinosaurAPI#readme"
+}
