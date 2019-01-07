@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/PlatypusIndustries/DinosaurAPI/issues"
   },
-  "homepage": "https://github.com/PlatypusIndustries/DinosaurAPI#readme"
+  "homepage": "https://github.com/PlatypusIndustries/DinosaurAPI#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
 }
