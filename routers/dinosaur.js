@@ -69,6 +69,33 @@ router.route('/:dinosaur_id')
         });
       };
     });
+  })
+
+  // define route to update a dinosaur (accessed via PUT http://localhost:8000/api/:dinosaur_id)
+  .put(function(req, res) {
+    // find dinosaur record by id and execute callback function
+    Dinosaur.findById(req.params.dinosaur_id, function(err, dinosaur) {
+      if (err) {
+        // return an error in the response
+        res.send(err);
+      } else {
+        // set the dinosaur name based on the request body
+        dinosaur.name = req.body.name;
+        // check for errors and save the dinosaur
+        dinosaur.save(function(err) {
+          if (err) {
+            // return an error in the response
+            res.send(err);
+          } else {
+            // return a message and the dinosaur record in the response
+            res.json({
+              message: 'Dinosaur updated!',
+              dinosaur
+            });
+          };
+        });
+      };
+    });
   });
 
 // export router for use in the application
